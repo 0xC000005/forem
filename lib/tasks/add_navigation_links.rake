@@ -4,7 +4,7 @@ namespace :navigation_links do
   task update: :environment do
     protocol = ApplicationConfig["APP_PROTOCOL"].freeze
     domain = Rails.application&.initialized? ? SiteConfig.app_domain : ApplicationConfig["APP_DOMAIN"]
-    base_url = "http://yuegaoya.org".freeze
+    base_url = "#{protocol}#{domain}".freeze
 
     reading_icon = File.read(Rails.root.join("app/assets/images/twemoji/drawer.svg")).freeze
     thumb_up_icon = File.read(Rails.root.join("app/assets/images/twemoji/thumb-up.svg")).freeze
@@ -21,37 +21,37 @@ namespace :navigation_links do
     rainbowdev = File.read(Rails.root.join("app/assets/images/rainbowdev.svg")).freeze
 
     NavigationLink.where(url: "#{base_url}/readinglist").first_or_create(
-      name: "书单",
+      name: "Reading List",
       icon: reading_icon,
       display_only_when_signed_in: true,
       position: 0,
     )
     NavigationLink.where(url: "#{base_url}/listings").first_or_create(
-      name: "卡片",
+      name: "Listings",
       icon: listing_icon,
       display_only_when_signed_in: false,
       position: 1,
     )
     NavigationLink.where(url: "#{base_url}/pod").first_or_create(
-      name: "播客",
+      name: "Podcasts",
       icon: mic_icon,
       display_only_when_signed_in: false,
       position: 2,
     )
     NavigationLink.where(url: "#{base_url}/videos").first_or_create(
-      name: "视频",
+      name: "Videos",
       icon: camera_icon,
       display_only_when_signed_in: false,
       position: 3,
     )
     NavigationLink.where(url: "#{base_url}/tags").first_or_create(
-      name: "关键词",
+      name: "Tags",
       icon: tag_icon,
       display_only_when_signed_in: false,
       position: 4,
     )
     NavigationLink.where(url: "#{base_url}/code-of-conduct").first_or_create(
-      name: "鸭的行为准则",
+      name: "Code of Conduct",
       icon: thumb_up_icon,
       display_only_when_signed_in: false,
       position: 5,
@@ -63,37 +63,37 @@ namespace :navigation_links do
       position: 6,
     )
     NavigationLink.where(url: "https://shop.dev.to/").first_or_create(
-      name: "约稿鸭商店",
+      name: "DEV Shop",
       icon: shopping_icon,
       display_only_when_signed_in: false,
       position: 7,
     )
     NavigationLink.where(url: "#{base_url}/sponsors").first_or_create(
-      name: "感谢支持",
+      name: "Sponsors",
       icon: heart_icon,
       display_only_when_signed_in: false,
       position: 8,
     )
     NavigationLink.where(url: "#{base_url}/about").first_or_create(
-      name: "关于约稿鸭",
+      name: "About",
       icon: rainbowdev,
       display_only_when_signed_in: false,
       position: 9,
     )
     NavigationLink.where(url: "#{base_url}/privacy").first_or_create(
-      name: "隐私政策",
+      name: "Privacy Policy",
       icon: smart_icon,
       display_only_when_signed_in: false,
       position: 10,
     )
     NavigationLink.where(url: "#{base_url}/terms").first_or_create(
-      name: "使用条款",
+      name: "Terms of use",
       icon: look_icon,
       display_only_when_signed_in: false,
       position: 11,
     )
     NavigationLink.where(url: "#{base_url}/contact").first_or_create(
-      name: "联系我们",
+      name: "Contact",
       icon: contact_icon,
       display_only_when_signed_in: false,
       position: 12,
