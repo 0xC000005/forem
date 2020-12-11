@@ -103,7 +103,7 @@
   function addOptionalBanner(query, displayBanner, jobsUrl) {
     var lowerCaseQuery = query.toLowerCase();
 
-    if (displayBanner && lowerCaseQuery.includes("job")) {
+    if (displayBanner && lowerCaseQuery.includes("")) {
       document.getElementById("banner-section").innerHTML = '<div class="crayons-notice crayons-notice--info mb-3 fs-base">对约稿鸭的技术感兴趣，也想成为开发者之一？ 那就加入我们的养鸭人团队吧！ 欢迎私信<a href=' + jobsUrl + '>开发姐姐</a>咨询详情哦 ❤</div>';
     }
   }
