@@ -55,6 +55,10 @@ Rails.application.routes.draw do
         mount flipper_ui, at: "feature_flags"
       end
 
+      namespace :users do
+        resources :gdpr_delete_requests, only: %i[index destroy]
+      end
+
       resources :articles, only: %i[index show update]
       resources :broadcasts
       resources :buffer_updates, only: %i[create update]
@@ -288,6 +292,7 @@ Rails.application.routes.draw do
     resources :podcasts, only: %i[new create]
     resources :article_approvals, only: %i[create]
     resources :video_chats, only: %i[show]
+    resources :sidebars, only: %i[show]
     resources :user_subscriptions, only: %i[create] do
       collection do
         get "/subscribed", action: "subscribed"
