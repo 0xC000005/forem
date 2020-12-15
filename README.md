@@ -41,6 +41,8 @@
   <a href="https://knapsackpro.com/dashboard/organizations/1142/projects/1022/test_suites/1434/builds">
     <img src="https://img.shields.io/badge/Knapsack%20Pro-Parallel%20%2F%20dev.to-%230074ff" alt="Knapsack Pro Parallel CI builds for dev.to" style="max-width:100%;">
   </a>
+  <a href="https://gitlocalize.com/repo/5561/zh?utm_source=badge"> <img src="https://gitlocalize.com/repo/5561/zh/badge.svg" /> 
+  </a>
 </p>
 
 Welcome to the [Forem](https://forem.com) codebase, the platform that powers
