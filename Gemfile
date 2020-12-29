@@ -125,7 +125,7 @@ group :development do
   gem "pry", "~> 0.13" # An IRB alternative and runtime developer console
   gem "pry-rails", "~> 0.3" # Use Pry as your rails console
   gem "web-console", "~> 4.1" # Rails Console on the Browser
-  gem "yard", "~> 0.9.25" # YARD is a documentation generation tool for the Ruby programming language
+  gem "yard", "~> 0.9.26" # YARD is a documentation generation tool for the Ruby programming language
   gem "yard-activerecord", "~> 0.0.16" # YARD extension that handles and interprets methods used when developing applications with ActiveRecord
   gem "yard-activesupport-concern", "~> 0.0.1" # YARD extension that brings support for modules making use of ActiveSupport::Concern
 end
@@ -139,7 +139,7 @@ group :development, :test do
   gem "knapsack_pro", "~> 2.10.1" # Help parallelize Ruby spec builds
   gem "pry-byebug", "~> 3.8" # Combine 'pry' with 'byebug'. Adds 'step', 'next', 'finish', 'continue' and 'break' commands to control execution
   gem "rspec-rails", "~> 4.0" # rspec-rails is a testing framework for Rails 3+
-  gem "rubocop", "~> 1.6", require: false # Automatic Ruby code style checking tool
+  gem "rubocop", "~> 1.7", require: false # Automatic Ruby code style checking tool
   gem "rubocop-performance", "~> 1.9", require: false # A collection of RuboCop cops to check for performance optimizations in Ruby code
   gem "rubocop-rails", "~> 2.9", require: false # Automatic Rails code style checking tool
   gem "rubocop-rspec", "~> 2.1", require: false # Code style checking for RSpec files
