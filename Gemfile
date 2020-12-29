@@ -58,7 +58,7 @@ gem "katex", "~> 0.6.0" # This rubygem enables you to render TeX math to HTML us
 gem "liquid", "~> 4.0" # A secure, non-evaling end user template engine with aesthetic markup
 gem "mini_racer", "~> 0.3.1" # Minimal embedded v8
 gem "nokogiri", "~> 1.10" # HTML, XML, SAX, and Reader parser
-gem "octokit", "~> 4.19" # Simple wrapper for the GitHub API
+gem "octokit", "~> 4.20" # Simple wrapper for the GitHub API
 gem "oj", "~> 3.10" # JSON parser and object serializer
 gem "omniauth", "~> 1.9" # A generalized Rack framework for multiple-provider authentication
 gem "omniauth-apple", "~> 1.0" # OmniAuth strategy for Sign In with Apple
@@ -81,6 +81,13 @@ gem "ransack", "~> 2.4" # Searching and sorting
 gem "recaptcha", "~> 5.6", require: "recaptcha/rails" # Helpers for the reCAPTCHA API
 gem "redcarpet", "~> 3.5" # A fast, safe and extensible Markdown to (X)HTML parser
 gem "redis", "~> 4.2.5" # Redis ruby client
+
+# NOTE: [@rhymes]: sign in doesn't work with the redis-rack 2.1.0+ or with redis-actionpack 5.2.0+
+# We need to investigate why exactly, in the meantime we are hardcoding these two transitive dependencies
+# (added by redis-rails) to keep them at the latest working version
+gem "redis-actionpack", "5.1.0" # Redis session store for ActionPack. Used for storing the Rails session in Redis.
+gem "redis-rack", "2.0.6" # Redis Store for Rack applications
+
 gem "redis-rails", "~> 5.0.2" # Redis for Ruby on Rails
 gem "request_store", "~> 1.5" # RequestStore gives you per-request global storage
 gem "reverse_markdown", "~> 2.0" # Map simple html back into markdown
@@ -111,7 +118,7 @@ gem "webpacker", "~> 5.2.1" # Use webpack to manage app-like JavaScript modules 
 
 group :development do
   gem "better_errors", "~> 2.9" # Provides a better error page for Rails and other Rack apps
-  gem "binding_of_caller", "~> 0.8" # Retrieve the binding of a method's caller
+  gem "binding_of_caller", "~> 1.0" # Retrieve the binding of a method's caller
   gem "brakeman", "~> 4.10", require: false # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis
   gem "bundler-audit", "~> 0.7" # bundler-audit provides patch-level verification for Bundled apps
   gem "derailed_benchmarks", "~> 1.8", require: false # A series of things you can use to benchmark a Rails or Ruby app
