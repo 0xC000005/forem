@@ -36,9 +36,9 @@ gem "emoji_regex", "~> 3.2" # A pair of Ruby regular expressions for matching Un
 gem "fastly", "~> 2.5" # Client library for the Fastly acceleration system
 gem "feedjira", "~> 3.1" # A feed fetching and parsing library
 gem "field_test", "~> 0.4" # A/B testing
-gem "flipper", "~> 0.20.1" # Feature flipping / flags for Ruby
-gem "flipper-active_record", "~> 0.20.0" # Store Flipper flags in ActiveRecord
-gem "flipper-ui", "~> 0.20.0"
+gem "flipper", "~> 0.20.3" # Feature flipping / flags for Ruby
+gem "flipper-active_record", "~> 0.20.3" # Store Flipper flags in ActiveRecord
+gem "flipper-ui", "~> 0.20.3"
 gem "fog-aws", "~> 3.7" # 'fog' gem to support Amazon Web Services
 gem "front_matter_parser", "~> 0.2" # Parse a front matter from syntactically correct strings or files
 gem "gemoji", "~> 4.0.0.rc2" # Character information and metadata for standard and custom emoji
@@ -54,12 +54,12 @@ gem "jbuilder", "~> 2.10" # Create JSON structures via a Builder-style DSL
 gem "jquery-rails", "~> 4.4" #  A gem to automate using jQuery with Rails
 gem "jsonapi-serializer", "~> 2.1" # Serializer for Ruby objects
 gem "kaminari", "~> 1.2" # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
-gem "katex", "~> 0.6.0" # This rubygem enables you to render TeX math to HTML using KaTeX. It uses ExecJS under the hood
+gem "katex", "~> 0.6.1" # This rubygem enables you to render TeX math to HTML using KaTeX. It uses ExecJS under the hood
 gem "liquid", "~> 4.0" # A secure, non-evaling end user template engine with aesthetic markup
 gem "mini_racer", "~> 0.3.1" # Minimal embedded v8
 gem "nokogiri", "~> 1.11" # HTML, XML, SAX, and Reader parser
 gem "octokit", "~> 4.20" # Simple wrapper for the GitHub API
-gem "oj", "~> 3.10" # JSON parser and object serializer
+gem "oj", "~> 3.11" # JSON parser and object serializer
 gem "omniauth", "~> 1.9" # A generalized Rack framework for multiple-provider authentication
 gem "omniauth-apple", "~> 1.0" # OmniAuth strategy for Sign In with Apple
 gem "omniauth-facebook", "~> 8.0" # OmniAuth strategy for Facebook
@@ -166,8 +166,8 @@ group :test do
   gem "pundit-matchers", "~> 1.6" # A set of RSpec matchers for testing Pundit authorisation policies
   gem "rspec-retry", "~> 0.6" # retry intermittently failing rspec examples
   gem "ruby-prof", "~> 1.4", require: false # ruby-prof is a fast code profiler for Ruby
-  gem "shoulda-matchers", "~> 4.4.1", require: false # Simple one-liner tests for common Rails functionality
-  gem "simplecov", "~> 0.21.1", require: false # Code coverage with a powerful configuration library and automatic merging of coverage across test suites
+  gem "shoulda-matchers", "~> 4.5.0", require: false # Simple one-liner tests for common Rails functionality
+  gem "simplecov", "~> 0.21.2", require: false # Code coverage with a powerful configuration library and automatic merging of coverage across test suites
   gem "stackprof", "~> 0.2", require: false, platforms: :ruby # stackprof is a fast sampling profiler for ruby code, with cpu, wallclock and object allocation samplers
   gem "stripe-ruby-mock", "~> 3.0", require: "stripe_mock" # A drop-in library to test stripe without hitting their servers
   gem "test-prof", "~> 0.12" # Ruby Tests Profiling Toolbox
