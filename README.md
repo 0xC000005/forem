@@ -69,7 +69,7 @@ within our community. ❤️
 
 - [What is Forem?](#what-is-forem)
 - [Table of Contents](#table-of-contents)
-- [Community](#community) 
+- [Community](#community)
 - [Contributing](#contributing)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
