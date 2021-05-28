@@ -6,8 +6,8 @@ module Articles
       @event_dispatcher = event_dispatcher
     end
 
-    def self.call(*args)
-      new(*args).call
+    def self.call(...)
+      new(...).call
     end
 
     def call
@@ -16,10 +16,12 @@ module Articles
       article = save_article
 
       if article.persisted?
+        # Subscribe author to notifications for all comments on their article.
         NotificationSubscription.create(user: user, notifiable_id: article.id, notifiable_type: "Article",
                                         config: "all_comments")
-        Notification.send_to_followers(article, "Published") if article.published?
 
+        # Send notifications to any mentioned users, followed by any users who follow the article's author.
+        Notification.send_to_mentioned_users_and_followers(article) if article.published?
         dispatch_event(article)
       end
 
@@ -31,7 +33,7 @@ module Articles
     attr_reader :user, :article_params, :event_dispatcher
 
     def rate_limit!
-      rate_limit_to_use = if user.created_at > 3.days.ago.beginning_of_day
+      rate_limit_to_use = if user.decorate.considered_new?
                             :published_article_antispam_creation
                           else
                             :published_article_creation

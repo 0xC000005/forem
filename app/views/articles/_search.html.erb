@@ -18,7 +18,7 @@
 
   function searchMain(substories) {
     var query = filterXSS(params.q);
-    var filters = filterXSS(params.filters || "");
+    var filters = filterXSS(params.filters || "class_name:Article");
     var sortBy = filterXSS(params.sort_by || "");
     var sortDirection = filterXSS(params.sort_direction || "");
 
@@ -35,7 +35,7 @@
   }
 
   function initializeSortingTabs(query) {
-    var sortingTabs = document.getElementById("sorting-option-tabs").children;
+    var sortingTabs = document.querySelectorAll('#sorting-option-tabs .crayons-tabs__item');
 
     for (var i=0; i < sortingTabs.length; i++) {
       var tab = sortingTabs[i];
@@ -58,10 +58,12 @@
         for (var j=0; j < sortingTabs.length; j++) {
           if (sortingTabs[j] !== e.target) {
             sortingTabs[j].classList.remove("crayons-tabs__item--current");
+            sortingTabs[j].setAttribute('aria-current', '');
           }
         }
 
         e.target.classList.add("crayons-tabs__item--current");
+        e.target.setAttribute('aria-current', 'page');
       });
     }
   }
@@ -103,8 +105,8 @@
   function addOptionalBanner(query, displayBanner, jobsUrl) {
     var lowerCaseQuery = query.toLowerCase();
 
-    if (displayBanner && lowerCaseQuery.includes("")) {
-      document.getElementById("banner-section").innerHTML = '<div class="crayons-notice crayons-notice--info mb-3 fs-base">对约稿鸭的技术感兴趣，也想成为开发者之一？ 那就加入我们的养鸭人团队吧！ 欢迎私信<a href=' + jobsUrl + '>开发姐姐</a>咨询详情哦 ❤</div>';
+    if (displayBanner && lowerCaseQuery.includes("job")) {
+      document.getElementById("banner-section").innerHTML = '<div class="crayons-notice crayons-notice--info mb-3 fs-base" aria-live="polite">Interested in joining our team? Explore our <a href=' + jobsUrl + '>open roles</a>.</div>';
     }
   }
 
@@ -167,10 +169,6 @@
     })
       .then(response => response.json())
     .then((content) => {
-        if (searchHash["search_fields"] && content.jobs_url) {
-          addOptionalBanner(searchHash["search_fields"], content.display_jobs_banner, content.jobs_url);
-        }
-
         var resultDivs = []
         content.result.forEach(function (story, i) {
           resultDivs.push(buildArticleHTML(story));

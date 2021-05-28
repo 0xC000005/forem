@@ -5,7 +5,7 @@
   </div>
 
   <div class="ml-auto">
-    <a href="<%= tag_path(@tag.name) %>" class="crayons-btn crayons-btn--outlined" target="_blank" rel="noopener noreferer">View</a>
+    <a href="<%= URL.tag(@tag) %>" class="crayons-btn crayons-btn--outlined" target="_blank" rel="noopener noreferer">View</a>
   </div>
 </header>
 
@@ -28,7 +28,7 @@
           <% end %>
         </ul>
       <% else %>
-        <div class="crayons-notice mb-5">
+        <div class="crayons-notice mb-5" aria-live="polite">
           This tag currently has no moderators.
         </div>
       <% end %>
